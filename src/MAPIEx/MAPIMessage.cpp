@@ -204,7 +204,7 @@ BOOL CMAPIMessage::GetNextRecipient(CString& strName, CString& strEmail, int& nT
 			bResult=TRUE;
 		}
 		FreeProws(pRows);
-		MAPIFreeBuffer(pRows);
+		//MAPIFreeBuffer(pRows);
 	}
 	return bResult;
 }
@@ -486,7 +486,7 @@ int CMAPIMessage::ShowForm(CMAPIEx* pMAPI)
 {
 	CMAPIFolder* pFolder=pMAPI->GetFolder();
 	IMAPISession* pSession=pMAPI->GetSession();
-	ULONG ulMessageToken;
+	ULONG_PTR ulMessageToken;
 
 	if(pFolder && pSession && pSession->PrepareForm(NULL,Message(), &ulMessageToken)==S_OK) 
 	{
