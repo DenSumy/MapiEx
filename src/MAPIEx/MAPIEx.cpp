@@ -85,10 +85,9 @@ void CMAPIEx::Term()
 
 BOOL CMAPIEx::Login(LPCTSTR szProfileName, BOOL bInitAsService)
 {
-	DWORD dwFlags=MAPI_EXTENDED | MAPI_USE_DEFAULT | MAPI_NEW_SESSION;
+    DWORD dwFlags = MAPI_EXTENDED | MAPI_USE_DEFAULT;// | MAPI_NEW_SESSION;
 	if(bInitAsService) dwFlags|=MAPI_EXPLICIT_PROFILE | MAPI_NT_SERVICE;
-	int result = MAPILogonEx(NULL, (LPTSTR)szProfileName, NULL, dwFlags, &m_pSession);
-	return (result == S_OK);
+	return (MAPILogonEx(NULL, (LPTSTR)szProfileName, NULL, dwFlags, &m_pSession)==S_OK);
 }
 
 void CMAPIEx::Logout()

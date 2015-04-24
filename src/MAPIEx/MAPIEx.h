@@ -52,7 +52,7 @@ protected:
 	LPMDB m_pMsgStore;
 	ULONG m_ulMDBFlags;
 	CMAPIFolder* m_pFolder;
-	ULONG m_sink;
+	ULONG_PTR m_sink;
 
 // Operations
 public:
